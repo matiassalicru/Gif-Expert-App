@@ -13,30 +13,25 @@ describe("Pruebas en <GifGridItem/>", () => {
   });
 
   test("Debe de tener un párrafo con el title", () => {
-      const p = wrapper.find('p');
+    const p = wrapper.find("p");
 
-      expect( p.text().trim() ).toBe(title);
+    expect(p.text().trim()).toBe(title);
   });
 
-
-  test('Debe de tener la imagen igual al url y alt de las props.', () => {
-
-    const img = wrapper.find('img');
+  test("Debe de tener la imagen igual al url y alt de las props.", () => {
+    const img = wrapper.find("img");
 
     // console.log(img.props());
 
-    expect( img.prop('src') ).toBe(url);
+    expect(img.prop("src")).toBe(url);
     expect(img.prop("alt")).toBe(title);
-  })
+  });
 
-  test('Debe tener la clase Animate_FadeIn', () => {
-      const div = wrapper.find("div");
+  test("Debe tener la clase Animate_FadeIn", () => {
+    const div = wrapper.find("div");
+ 
+    const className = div.prop("className");
 
-      const className = div.prop("className");
-
-      console.log(className);
-
-       expect(className.includes("animate__fadeIn")).toBe(true);
-  })
-  
+    expect(className.includes("animate__fadeIn")).toBe(true);
+  });
 });
