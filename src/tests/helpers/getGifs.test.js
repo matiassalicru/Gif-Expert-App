@@ -13,6 +13,5 @@ describe('Pruebas en getGifs', () => {
 
       expect(gifs.length).toBe(0);
     });
-    
-    
+
 })

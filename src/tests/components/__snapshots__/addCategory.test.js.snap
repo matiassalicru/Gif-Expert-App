@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el componente Debe de mostrarse correctamente 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <p />
+  <input
+    onChange={[Function]}
+    placeholder="Search"
+    type="text"
+    value=""
+  />
+  <div
+    id="error"
+  />
+</form>
+`;

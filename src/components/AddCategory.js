@@ -6,9 +6,9 @@ export const AddCategory = ({ setCategories }) => {
   const [type, settype] = useState(false)
 
   const handleInputChange = (e) => {
-    
     setInputValue(e.target.value);
 
+    console.log('Handleinputchange cambia');
   };
 
   const handleSubmit = (e) => {
@@ -39,6 +39,7 @@ export const AddCategory = ({ setCategories }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <p>{inputValue}</p>
       <input
         placeholder="Search"
         type="text"
