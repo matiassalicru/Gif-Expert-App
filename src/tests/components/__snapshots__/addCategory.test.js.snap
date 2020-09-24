@@ -11,8 +11,5 @@ exports[`Pruebas en el componente Debe de mostrarse correctamente 1`] = `
     type="text"
     value=""
   />
-  <div
-    id="error"
-  />
 </form>
 `;

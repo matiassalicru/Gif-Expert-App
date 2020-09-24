@@ -7,18 +7,19 @@ export const AddCategory = ({ setCategories }) => {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-
-    console.log('Handleinputchange cambia');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('HandleSubmit');
+    console.log(inputValue);
 
-    if (inputValue.length === 0) {
+    if (inputValue.length < 2) {
       settype(true)
+      handleError();
     } else {
-      if (inputValue.trim().length > 2) {
-        setCategories([inputValue]);
+      if (inputValue.trim().length >= 2) {
+        setCategories(cats=> [inputValue, ...cats]);
         setInputValue("");
       }
     }
@@ -27,12 +28,8 @@ export const AddCategory = ({ setCategories }) => {
 
   const handleError = () =>{
 
-    const div = document.querySelector('#error');
-
-    div.innerHTML = 'Please type something first';
-
     setTimeout(() => {
-      div.innerHTML = '';
+      settype(false);
     }, 2000);
 
   }
@@ -46,9 +43,11 @@ export const AddCategory = ({ setCategories }) => {
         value={inputValue}
         onChange={handleInputChange}
       />
-      <div id="error"></div>
-      {type && 
-      handleError()}
+
+      { type &&
+        <div id="error">Please type more than one character</div>
+      }
+
     </form>
   );
 };
