@@ -6,13 +6,12 @@ body{
   padding: 60px;
   background-color: #282c34; 
   color: #f4f4f4;
-
 }
 
 .title{
   font-size: 2.8rem;
   color: #f5f5f5;
-  font-family: cursive;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   letter-spacing: 0.5rem;
 }
 
@@ -71,4 +70,25 @@ input::placeholder{
   max-height: 150px;
   max-width: 200px;
 
+}
+
+.loading{
+  font-size: 3rem;
+  color: red;
+}
+
+.btn{
+  border-radius: 10px;
+  background-color: #69748d;
+  border: 1px solid #000;
+  padding: 7px 10px;
+  color: #282c34;
+  margin: 15px 0;
+}
+
+.after-title{
+  font-size: 2rem;
+  font-family: 'Roboto';
+  letter-spacing: 1px;
+  font-style: italic;
 }

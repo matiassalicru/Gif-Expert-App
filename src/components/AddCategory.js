@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-export const AddCategory = ({ setCategories }) => {
+export const AddCategory = ({categories, setCategories }) => {
   const [inputValue, setInputValue] = useState("");
   const [type, settype] = useState(false)
 
@@ -11,8 +11,6 @@ export const AddCategory = ({ setCategories }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('HandleSubmit');
-    console.log(inputValue);
 
     if (inputValue.length < 2) {
       settype(true)
@@ -34,21 +32,34 @@ export const AddCategory = ({ setCategories }) => {
 
   }
 
+  const handleClear = () => {
+    setCategories([]);
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <p>{inputValue}</p>
-      <input
-        placeholder="Search"
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-      />
+    <>
+      <form onSubmit={handleSubmit}>
+        <p>{inputValue}</p>
+        <input
+          placeholder="Search"
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+        />
 
-      { type &&
-        <div id="error">Please type more than one character</div>
-      }
-
-    </form>
+        {type && <div id="error">Please type more than one character</div>}
+      </form>
+      {categories.length > 0 ? (
+        <button className="btn" onClick={handleClear}>
+          {" "}
+          Clear Gifs{" "}
+        </button>
+      ) : (
+        <div>
+          <p className="after-title">Find your perfect gifs</p>
+        </div>
+      )}
+    </>
   );
 };
 
