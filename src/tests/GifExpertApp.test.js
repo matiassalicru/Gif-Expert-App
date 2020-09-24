@@ -12,15 +12,15 @@ describe('Pruebas con el gifExpertApp', () => {
     })
     
 
-    test('Debe de mostrar una lista de categorias', () => {
+    // test('Debe de mostrar una lista de categorias', () => {
         
-        const categories = ['The office', 'Friends'];
+    //     const categories = ['The office', 'Friends'];
 
-        const wrapper = shallow(<GifExpertApp defaultCategories={categories}/>);
+    //     const wrapper = shallow(<GifExpertApp defaultCategories={categories}/>);
 
-        expect(wrapper).toMatchSnapshot();
-        expect(wrapper.find('GifGrid').length).toBe(categories.length);
+    //     expect(wrapper).toMatchSnapshot();
+    //     expect(wrapper.find('GifGrid').length).toBe(categories.length);
 
-    })
+    // })
     
 })
