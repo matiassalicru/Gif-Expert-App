@@ -17,6 +17,14 @@ export const GifExpertApp = () => {
           <GifGrid key={category} category={category} />
         ))}
       </ol>
+
+      <footer>
+        Made with passion by{" "}
+        <span>
+          {" "}
+          <a href="https://twitter.com/MatiasSalicru">@matiassalicru ♥</a>
+        </span>
+      </footer>
     </>
   );
 };

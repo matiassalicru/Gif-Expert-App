@@ -92,3 +92,10 @@ input::placeholder{
   letter-spacing: 1px;
   font-style: italic;
 }
+
+
+
+footer span a{
+  color: #aa75c9;
+  text-decoration: none;
+}
