@@ -1,18 +1,48 @@
-import React from 'react';
-const { shallow } = require("enzyme")
-const { GifGrid } = require("../../components/GifGrid")
+import React from "react";
+import { useFetchGifs } from "../../hooks/useFetchGifs";
+import '@testing-library/jest-dom';
+const { shallow } = require("enzyme");
+const { GifGrid } = require("../../components/GifGrid");
+jest.mock("../../hooks/useFetchGifs"); //Simular este archivo.
 
+describe("Pruebas de GifGrid", () => {
+  const category = "The Office";
 
-describe('Pruebas de GifGrid', () => {
-    test('Debería matchear con el snapshot ', () => {
+  test("Debería matchear con el snapshot ", () => {
+    useFetchGifs.mockReturnValue({
+      data: [],
+      loading: true,
+    });
 
-        const category = 'algo';
+    const wrapper = shallow(<GifGrid category={category} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 
-        const wrapper = shallow(<GifGrid category={category}/>);
+  test("Debe de mostrar items cuando se cargan imagenes con useFetchGifs", () => {
+    const gifs = [
+      {
+        id: "ABC",
+        url: "https://localhost:algo/cosa.jpg",
+        title: "Cualquier cosa",
+      },
+      {
+        id: "123",
+        url: "https://localhost:algo/cosaasd.jpg",
+        title: "Cualquier cosaasdaf",
+      },
+    ];
 
-        expect(wrapper).toMatchSnapshot();
-        
-    })
-    
-    
-})
+    useFetchGifs.mockReturnValue({
+      data: gifs,
+      loading: false,
+    });
+
+    const wrapper = shallow(<GifGrid category={category} />);
+
+    expect(wrapper).toMatchSnapshot();
+ 
+    expect(wrapper.find('p').exists()).toBe(false);
+
+    expect(wrapper.find('GifGridItem').length).toBe(gifs.length);
+  });
+});
